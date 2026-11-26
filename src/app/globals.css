@@ -1,0 +1,202 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Thok Bazar palette.
+
+   Crimson is the anchor — it reads as Nepali without being a flag pastiche —
+   sitting on a warm stone neutral so dense tables of prices stay readable.
+   Green carries "verified" and "in stock"; amber carries "check this".
+--------------------------------------------------------------------------- */
+
+:root {
+  --radius: 0.625rem;
+
+  --background: oklch(0.994 0.003 85);
+  --foreground: oklch(0.21 0.012 45);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.012 45);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.012 45);
+
+  --primary: oklch(0.505 0.178 18);
+  --primary-foreground: oklch(0.985 0.005 85);
+
+  --secondary: oklch(0.962 0.008 75);
+  --secondary-foreground: oklch(0.28 0.015 45);
+
+  --muted: oklch(0.962 0.008 75);
+  --muted-foreground: oklch(0.52 0.015 55);
+
+  --accent: oklch(0.945 0.018 70);
+  --accent-foreground: oklch(0.28 0.015 45);
+
+  --destructive: oklch(0.505 0.19 27);
+  --destructive-foreground: oklch(0.985 0.005 85);
+
+  --success: oklch(0.465 0.125 155);
+  --success-foreground: oklch(0.985 0.005 85);
+
+  --warning: oklch(0.72 0.15 75);
+  --warning-foreground: oklch(0.24 0.02 60);
+
+  --border: oklch(0.905 0.008 70);
+  --input: oklch(0.905 0.008 70);
+  --ring: oklch(0.505 0.178 18);
+
+  --chart-1: oklch(0.505 0.178 18);
+  --chart-2: oklch(0.58 0.11 185);
+  --chart-3: oklch(0.65 0.14 75);
+  --chart-4: oklch(0.52 0.12 155);
+  --chart-5: oklch(0.52 0.13 290);
+}
+
+.dark {
+  --background: oklch(0.178 0.009 50);
+  --foreground: oklch(0.955 0.005 85);
+
+  --card: oklch(0.222 0.01 50);
+  --card-foreground: oklch(0.955 0.005 85);
+
+  --popover: oklch(0.222 0.01 50);
+  --popover-foreground: oklch(0.955 0.005 85);
+
+  --primary: oklch(0.645 0.17 20);
+  --primary-foreground: oklch(0.16 0.01 40);
+
+  --secondary: oklch(0.275 0.011 50);
+  --secondary-foreground: oklch(0.955 0.005 85);
+
+  --muted: oklch(0.275 0.011 50);
+  --muted-foreground: oklch(0.70 0.012 65);
+
+  --accent: oklch(0.305 0.014 50);
+  --accent-foreground: oklch(0.955 0.005 85);
+
+  --destructive: oklch(0.70 0.17 25);
+  --destructive-foreground: oklch(0.16 0.01 40);
+
+  --success: oklch(0.735 0.135 155);
+  --success-foreground: oklch(0.16 0.01 40);
+
+  --warning: oklch(0.78 0.14 78);
+  --warning-foreground: oklch(0.18 0.015 60);
+
+  --border: oklch(0.315 0.012 50);
+  --input: oklch(0.32 0.012 50);
+  --ring: oklch(0.645 0.17 20);
+
+  --chart-1: oklch(0.645 0.17 20);
+  --chart-2: oklch(0.68 0.11 185);
+  --chart-3: oklch(0.74 0.14 75);
+  --chart-4: oklch(0.66 0.13 155);
+  --chart-5: oklch(0.65 0.14 290);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-devanagari: var(--font-devanagari), var(--font-inter), sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Devanagari needs a touch more line height to avoid clipped matras. */
+  :lang(ne),
+  .font-devanagari {
+    font-family: var(--font-devanagari);
+    line-height: 1.75;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Subtle warm wash used behind hero and section headers. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklch, var(--border) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklch, var(--border) 55%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Hide scrollbars on horizontal chip rows without losing scrollability. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Tabular figures keep price columns aligned. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
