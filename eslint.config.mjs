@@ -6,7 +6,15 @@ const eslintConfig = [
   ...nextCoreWebVitals,
   ...nextTypescript,
   {
-    ignores: [".next/**", "node_modules/**", "next-env.d.ts"],
+    // .preview-build and preview-out hold generated output from
+    // `node preview/build.mjs`; they are build artifacts, not source.
+    ignores: [
+      ".next/**",
+      "node_modules/**",
+      "next-env.d.ts",
+      ".preview-build/**",
+      "preview-out/**",
+    ],
   },
 ];
 

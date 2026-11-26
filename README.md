@@ -80,6 +80,27 @@ to a colleague on Viber.
 
 ---
 
+## Sharing a preview
+
+```bash
+node preview/build.mjs
+```
+
+Produces a fully static, hostable copy of the site in `preview-out/` — every
+page, with working search, filters and form validation — for sharing before a
+real deployment exists. `src/` is never modified; see `preview/README.md` for
+what the build overlays and what it therefore cannot represent.
+
+---
+
+## Roadmap
+
+`ROADMAP.md` audits what is complete, partial, untested and missing, and lays
+out the phases to production. Read §2 first: it lists four problems found in
+this codebase that need fixing before any deployment.
+
+---
+
 ## Stack
 
 | Layer | Choice |
@@ -211,11 +232,14 @@ src/
     categories.ts         The 16 supply categories
     format.ts             NPR, units, phone links, freshness
     search.ts             Word-prefix text matching
+    filters.ts            Pure filtering/sorting, shared by server and preview
+    validation.ts         Zod schemas, shared by actions and preview
     actions.ts            Server Actions (enquiry, registration)
     supabase/             Client, server, mappers, mode detection
     seed/                 Demo data
   proxy.ts                Supabase session refresh
 supabase/migrations/      Schema and RLS
+preview/                  Static preview build (overlay + build script)
 ```
 
 ---
